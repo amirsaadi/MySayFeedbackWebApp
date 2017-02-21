@@ -169,7 +169,7 @@ ul a {
 .float-right-area {
     width: 40%;
     float: left;
-    padding-top: 10px;
+    padding-top: 6px;
 }
 
 .inner-left {
@@ -191,7 +191,7 @@ ul a {
 }
 
 .tg td {
-    font-family: Arial, sans-serif;
+
     font-size: 14px;
     padding: 10px 5px;
     overflow: hidden;
@@ -203,7 +203,7 @@ ul a {
 }
 
 .tg th {
-    font-family: Arial, sans-serif;
+
     font-size: 14px;
     font-weight: normal;
     padding: 10px 5px;
@@ -216,17 +216,6 @@ ul a {
 .wl{
     margin-left: 90%;
     color:#8849E8 ;
-}
-
-.tg .tg-lqy6 {
-    text-align: center;
-    vertical-align: top
-}
-
-.tg .tg-gwd2 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;;
-    vertical-align: top;
-
 }
 
 .tg .tg-6k2t {
@@ -249,11 +238,26 @@ ul a {
 
     border-radius: 12px;
     table-layout: fixed;
-    width: 389px
+    width: 390px
 }
 
 
-
+#tbl thead th:first-child {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;;
+    border-radius: 10px 0 0 0;
+    vertical-align: top;
+}
+#tbl thead th:last-child {
+    border-radius: 0 10px 0 0;
+    text-align: center;
+    vertical-align: top
+}
+#tbl tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+#tbl tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
 
 
 
