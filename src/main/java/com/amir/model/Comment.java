@@ -2,6 +2,7 @@ package com.amir.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by Amir on 2017-02-18.
@@ -15,11 +16,11 @@ public class Comment {
 	private String mess;
 	private User user;
 	private Topic commentOnTopic;
-	private LocalDate date;
+	private String date;
 	
 	public Comment(String mess) {
 		this.mess = mess;
-		this.date = LocalDate.now();
+		this.date = getFormattedTimeDate();
 	}
 	
 	public Comment() {
@@ -57,12 +58,18 @@ public class Comment {
 		this.commentOnTopic = commentOnTopic;
 	}
 	
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 	
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
+	private String getFormattedTimeDate(){
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d','uu 'at' H:mm");
+		String text = date.format(formatter);
+		return   text.substring(0, 1).toUpperCase() + text.substring(1);
+	}
 }

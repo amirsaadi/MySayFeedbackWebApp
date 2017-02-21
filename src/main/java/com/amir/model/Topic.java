@@ -1,6 +1,8 @@
 package com.amir.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,7 +15,7 @@ public class Topic {
 	private int topicId;
 	private String title;
 	private String content;
-	private LocalDate date;
+	private String date;
 	private User user;
 	private List<Comment> comments=new ArrayList<>();
 	private static final AtomicInteger count = new AtomicInteger(0);
@@ -22,10 +24,11 @@ public class Topic {
 	}
 	
 	public Topic(String title, String content) {
-		this.topicId=count.incrementAndGet();;
+		this.topicId=count.incrementAndGet();
 		this.title = title;
 		this.content = content;
-		this.date = LocalDate.now();
+		
+		this.date = getFormattedTimeDate();
 	}
 	
 	public User getUser() {
@@ -60,11 +63,11 @@ public class Topic {
 		this.content = content;
 	}
 	
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 	
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
@@ -74,6 +77,13 @@ public class Topic {
 	
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	private String getFormattedTimeDate(){
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d','uu 'at' H:mm");
+		String text = date.format(formatter);
+		return   text.substring(0, 1).toUpperCase() + text.substring(1);
 	}
 	
 }
