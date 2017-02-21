@@ -187,7 +187,7 @@ ul a {
 .tg {
     border-collapse: collapse;
     border-spacing: 0;
-    border-color: #aabcfe;
+    border: hidden;
 }
 
 .tg td {
@@ -199,6 +199,7 @@ ul a {
     border: 1px solid #aabcfe;
     color: #669;
     background-color: #e8edff;
+    text-align: center;
 }
 
 .tg th {
@@ -214,22 +215,23 @@ ul a {
 }
 .wl{
     margin-left: 90%;
-    text-decoration-color:#8849E8 ;
+    color:#8849E8 ;
 }
 
 .tg .tg-lqy6 {
-    text-align: right;
+    text-align: center;
     vertical-align: top
 }
 
 .tg .tg-gwd2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;;
-    vertical-align: top
+    vertical-align: top;
+
 }
 
 .tg .tg-6k2t {
     background-color: #D2E4FC;
-    vertical-align: top
+    vertical-align: top;
 }
 
 .topic-form{
@@ -243,7 +245,12 @@ ul a {
     margin-bottom: 5px;
 }
 
+#tbl.tg {
 
+    border-radius: 12px;
+    table-layout: fixed;
+    width: 389px
+}
 
 
 
