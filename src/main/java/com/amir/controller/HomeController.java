@@ -65,7 +65,7 @@ public class HomeController {
 		model.addAttribute("user",webUser);
 		model.addAttribute("topics", this.dataService.getTopics());
 		model.addAttribute("comments",this.dataService.getComments());
-		return "topic";
+		return "redirect:/topic";
 	}
 	
 	@RequestMapping(value = "/topic", method = RequestMethod.GET)
@@ -88,7 +88,7 @@ public class HomeController {
 		model.addAttribute("user",webUser);
 		model.addAttribute("topics", this.dataService.getTopics());
 		model.addAttribute("comments",this.dataService.getComments());
-		return "topic";
+		return "redirect:/topic";
 	}
 	
 	/* since no validation strategy is used in login form ,
