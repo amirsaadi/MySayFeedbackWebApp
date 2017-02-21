@@ -49,7 +49,9 @@ by performing some string operations, correct form's id can be created
                         <h1 class="topic-title">${topic.title}</h1>
                         <p class="topic-content">${topic.content}</p>
                         <div class="name-and-dat">
-                            <p style="text-align: right;">${topic.date} ${topic.user.email} </p>
+                            <p style="text-align: right;">${topic.user.email}
+                                <span style="color: rgba(0,0,0,0.49)">${topic.date}</span>
+                            </p>
                         </div>
 
                     </div>
@@ -58,7 +60,11 @@ by performing some string operations, correct form's id can be created
                         <div>
                             <c:forEach items="${comments}" var="comment">
                                 <c:if test="${topic.topicId==comment.commentOnTopic.topicId}">
-                                    <p class="comment">${comment.mess} by ${comment.user.name} at ${comment.date}</p>
+                                    <p class="comment">${comment.mess} -
+                                        <span style="color: #0059d0">${comment.user.name}</span>
+
+                                        <span style="color: rgba(0,0,0,0.49)">${comment.date}</span>
+                                      </p>
                                 </c:if>
                             </c:forEach>
                         </div>
@@ -116,19 +122,23 @@ by performing some string operations, correct form's id can be created
 
         <table id="tbl" class="tg" >
             <colgroup>
-                <col style="width: 159px">
-                <col style="width: 230px">
+                <col style="width: 160px">
+                <col style="width: 160px">
             </colgroup>
-            <tr>
-                <th class="tg-gwd2">Topics</th>
-                <th class="tg-lqy6">Comments</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th class="tg-gwd2">Topics</th>
+                    <th class="tg-lqy6">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${topics}" var="topic">
                 <tr>
                     <td class="tg-6k2t">${topic.title}</td>
                     <td class="tg-mb3i">${topic.comments.size()}</td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
 
 
